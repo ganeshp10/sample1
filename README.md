@@ -1,2 +1,2 @@
 # sample1
-Sample project
+Sample project to learn
