@@ -8,8 +8,8 @@
     <ProjectGuid>{857A2CCF-E34F-459F-81B5-072635A9D2CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebAndLoadTestProject1</RootNamespace>
-    <AssemblyName>WebAndLoadTestProject1</AssemblyName>
+    <RootNamespace>CalculatorTests</RootNamespace>
+    <AssemblyName>CalculatorTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,6 +57,9 @@
       <Project>{FA9897A8-4FEE-4E05-AC40-DBE1E7B3146F}</Project>
       <Name>Calculator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
