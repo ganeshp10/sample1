@@ -1,7 +1,8 @@
 param(
     [string]$openCoverExe,
     [string]$codeCovExe,
-    [string]$testDir
+    [string]$testDir,
+    [string]$token
 )
 
 #Run code coverage tests to generate report
@@ -16,27 +17,23 @@ Write-Host "Last commit:" $lastCommit
 $branchNames = $(git branch --all --contains $lastCommit) 
 Write-Host "All branches that have this commit:" $branchNames
 
-$i=0
-Foreach ($branchName in $branchNames)
-{
+$i = 0
+Foreach ($branchName in $branchNames) {
     $i++
     # First element in the array is trash because repo is detached
-    if ($i -gt 1)
-    {
+    if ($i -gt 1) {
         $branchName = $branchName.Trim()
         # Check for what branches current commit (for which we have coverage) is the last commit
         $lastCommitOnBranch = $(git rev-parse $branchName)
-        if ($lastCommitOnBranch -eq  $lastCommit)
-        {
-      #Cut the prefix that CodeCov does not handle well
-            if ($branchName.StartsWith("remotes/origin/"))
-            {
+        if ($lastCommitOnBranch -eq $lastCommit) {
+            #Cut the prefix that CodeCov does not handle well
+            if ($branchName.StartsWith("remotes/origin/")) {
                 $branchName = $branchName.Substring("remotes/origin/".Length)
             }
             Write-Host "We will upload report to:"  $branchName
       
-      #Upload report
-      & $codeCovExe -f coverage.xml -t $env:CODECOVACCESSKEY -X gcov -B $branchName
+            #Upload report
+            & $codeCovExe -f coverage.xml -t $token --branch $branchName
         }
     }
 }
