@@ -12,10 +12,10 @@ $calcTests = "{0}\{1}" -f $testDir, "CalculatorTests.dll"
 
 #On the Agent box repo is in a detached state. So get branchName by commit hash
 $lastCommit = $(git rev-parse HEAD)
-Write-Host "Last commit:" $lastCommit
+Write-Host "Last commit: " $lastCommit
 
 $branchNames = $(git branch --all --contains $lastCommit) 
-Write-Host "All branches that have this commit:" $branchNames
+Write-Host "All branches that have this commit: " $branchNames
 
 $i = 0
 Foreach ($branchName in $branchNames) {
