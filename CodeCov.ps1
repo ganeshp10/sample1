@@ -7,7 +7,7 @@ param(
 #Run code coverage tests to generate report
 $vstest = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
 $calcTests = "{0}\{1}" -f $testDir, "CalculatorTests.dll"
-& $openCoverExe -register:user "-target: $vstest" "-targetargs: $calcTests /TestCaseFilter:FullyQualifiedName~CalculatorTests /logger:trx" "-filter:+[Calculator*]* -[*Tests]* -[*TestFramework*]*" -hideskipped:All -output:.\coverage.xml
+& $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"+[Calculator*]* -[*Tests]* -[*TestFramework*]*" -hideskipped:All -output:.\coverage.xml
 
 #On the Agent box repo is in a detached state. So get branchName by commit hash
 $lastCommit = $(git rev-parse HEAD)
