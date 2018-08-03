@@ -2,7 +2,8 @@ param(
     [string]$openCoverExe,
     [string]$codeCovExe,
     [string]$testDir,
-    [string]$token
+    [string]$token,
+    [switch]$master
 )
 
 #Run code coverage tests to generate report
@@ -33,6 +34,9 @@ Foreach ($branchName in $branchNames) {
             Write-Host "We will upload report to:"  $branchName
       
             #Upload report
+            if($master){
+                $branchName = "master"
+            }
             & $codeCovExe -f coverage.xml -t $token --branch $branchName
         }
     }
