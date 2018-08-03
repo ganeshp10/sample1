@@ -1,10 +1,13 @@
 param(
     [string]$openCoverExe,
-    [string]$codeCovExe
+    [string]$codeCovExe,
+    [string]$testDir
 )
 
 #Run code coverage tests to generate report
-& $openCoverExe -register:user "-target:C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" "-targetargs:..\a\Release\Src\DependencyCollector\Net40.Tests\Microsoft.ApplicationInsights.DependencyCollector.Net40.Tests.dll ..\a\Release\Src\DependencyCollector\Net45.Tests\Microsoft.ApplicationInsights.DependencyCollector.Net45.Tests.dll   ..\a\Release\Src\DependencyCollector\Nuget.Tests\Microsoft.ApplicationInsights.DependencyCollector.NuGet.Tests.dll ..\a\Release\Src\PerformanceCollector\Unit.Tests\Unit.Tests.dll ..\a\Release\Src\PerformanceCollector\Xdt.Tests\Xdt.Tests.dll ..\a\Release\Src\Web\Web.Net40.Tests\Microsoft.ApplicationInsights.Web.Net40.Tests.dll ..\a\Release\Src\Web\Web.Net45.Tests\Microsoft.ApplicationInsights.Web.Net45.Tests.dll ..\a\Release\Src\Web\Web.Nuget.Tests\Microsoft.ApplicationInsights.Platform.Web.Nuget.Tests.dll ..\a\Release\Src\WindowsServer\WindowsServer.Net40.Tests\WindowsServer.Net40.Tests.dll ..\a\Release\Src\WindowsServer\WindowsServer.Net45.Tests\WindowsServer.Net45.Tests.dll  ..\a\Release\Src\WindowsServer\WindowsServer.Nuget.Tests\WindowsServer.Nuget.Tests.dll /TestCaseFilter:TestCategory!=Required_4_5_1 /logger:trx" "-filter:+[Microsoft.AI*]* -[*Tests]* -[*TestFramework*]* -[*]Microsoft.ApplicationInsights.Extensibility.Implementation.External*" -hideskipped:All -output:.\coverage.xml
+$vstest = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
+$calcTests = "{0}\{1}" -f $testDir, "CalculatorTests.dll"
+& $openCoverExe -register:user "-target: $vstest" "-targetargs: $calcTests /TestCaseFilter:FullyQualifiedName~CalculatorTests /logger:trx" "-filter:+[Calculator*]* -[*Tests]* -[*TestFramework*]*" -hideskipped:All -output:.\coverage.xml
 
 #On the Agent box repo is in a detached state. So get branchName by commit hash
 $lastCommit = $(git rev-parse HEAD)
