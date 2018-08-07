@@ -46,5 +46,10 @@ namespace Calculators
         {
             return "Hello " + name + "!";
         }
+
+        public int SquareRoot(int a)
+        {
+            return a;
+        }
     }
 }
