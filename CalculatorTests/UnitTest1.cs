@@ -32,5 +32,11 @@ namespace CalculatorTests
         {
             Assert.IsTrue(12 == calculator.Multiply(13, 14));
         }
+
+        [TestMethod]
+        public void TestMethod5_SquareRoot()
+        {
+            Assert.IsTrue(10 == calculator.SquareRoot(10));
+        }
     }
 }

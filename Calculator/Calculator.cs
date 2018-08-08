@@ -51,5 +51,10 @@ namespace Calculators
         {
             return a;
         }
+
+        public int Modulo(int a, int b)
+        {
+            return a % b;
+        }
     }
 }
