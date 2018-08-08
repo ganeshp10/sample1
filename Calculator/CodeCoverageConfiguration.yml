@@ -1,2 +1,7 @@
 coverage:
-  range: 50..100
+	overall: 70
+  diff: 90
+  
+	status:
+		overall: yes
+		diff: yes
