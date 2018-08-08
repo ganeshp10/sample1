@@ -56,5 +56,10 @@ namespace Calculators
         {
             return a % b;
         }
+
+        public int Square(int a)
+        {
+            return a*a;
+        }
     }
 }
