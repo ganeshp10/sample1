@@ -2,12 +2,12 @@ codecov:
   notify: 
     require_ci_to_pass: true
 comment: 
-  behavior: spammy
-  layout: "header, diff, trends, uncovered"
+  behavior: default
+  layout: "header, diff"
   require_changes: false
 coverage: 
   precision: 1
-  range: "95...100"
+  range: 95...100
   round: down
   status: 
     changes: false
