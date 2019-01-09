@@ -9,14 +9,14 @@ coverage:
 
   status:
     project:
-      default:
+      production:
         target: 50%
 
     patch:
-      default:
+      production:
         target: 30%
 
-    changes: yes
+    changes: no
 
 parsers:
   gcov:
