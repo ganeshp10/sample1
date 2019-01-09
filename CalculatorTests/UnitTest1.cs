@@ -9,7 +9,7 @@ namespace CalculatorTests
     {
         Calculator calculator = new Calculator(); 
 
-        /*
+        /* Unexpected changes
         [TestMethod]
         public void TestMethod1_Add()
         {
@@ -20,7 +20,8 @@ namespace CalculatorTests
         [TestMethod]
         public void TestMethod2_Multiply()
         {
-            Assert.IsTrue(12 == calculator.Multiply(3, 4));
+            // Unexpected changes
+            //Assert.IsTrue(12 == calculator.Multiply(3, 4));
         }
 
         [TestMethod]
