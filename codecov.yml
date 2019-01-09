@@ -11,10 +11,14 @@ coverage:
     project:
       production:
         target: 50%
+      test:
+        target: 40%
 
     patch:
       production:
         target: 30%
+      test:
+        target: 40%
 
     changes: no
 
@@ -27,6 +31,6 @@ parsers:
       macro: no
 
 comment:
-  layout: "header, diff"
-  behavior: default
+  layout: "header, diff, trends, uncovered"
+  behavior: spammy
   require_changes: no
