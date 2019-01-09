@@ -9,7 +9,9 @@ coverage:
 
   status:
     project: yes
+      target: 60%
     patch: yes
+      target: 50%
     changes: yes
 
 parsers:
