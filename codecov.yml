@@ -1,32 +1,26 @@
-codecov:
-  notify:
-    require_ci_to_pass: yes
-
-coverage:
-  precision: 1
-  round: down
-  range: 95...100
-
-  status:
-    project:
-      production:
-        target: 50%
-
-    patch:
-      production:
-        target: 30%
-
-    changes: no
-
-parsers:
-  gcov:
-    branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
-
-comment:
-  layout: "header, diff, trends, uncovered"
+codecov: 
+  notify: 
+    require_ci_to_pass: true
+comment: 
   behavior: spammy
-  require_changes: no
+  layout: "header, diff, trends, uncovered"
+  require_changes: false
+coverage: 
+  precision: 1
+  range: "95...100"
+  round: down
+  status: 
+    changes: false
+    patch: 
+      production: 
+        target: 30%
+    project: 
+      production: 
+        target: 50%
+parsers: 
+  gcov: 
+    branch_detection: 
+      conditional: true
+      loop: true
+      macro: false
+      method: false
