@@ -10,10 +10,10 @@ coverage:
   status:
     project: yes
       default:
-        target: 60%
+        target: 60
     patch: yes
       default:
-        target: 50%
+        target: 50
     changes: yes
 
 parsers:
