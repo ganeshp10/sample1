@@ -38,5 +38,20 @@ namespace CalculatorTests
         {
             Assert.IsTrue(10 == calculator.SquareRoot(10));
         }
+        
+        [TestMethod]
+        public void TestMethod6_Divide()
+        {
+            Assert.IsTrue(5 == calculator.Divide(10, 2));
+            try
+            {
+                calculator.Divide(10, 0);
+                Assert.Fail("No exception thrown");
+            }
+            catch(Exception ex)
+            {
+                Assert.AreEqual("denominator is zero", ex.Message);
+            }
+        }
     }
 }
