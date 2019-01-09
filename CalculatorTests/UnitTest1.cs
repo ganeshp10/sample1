@@ -9,11 +9,13 @@ namespace CalculatorTests
     {
         Calculator calculator = new Calculator(); 
 
+        /*
         [TestMethod]
         public void TestMethod1_Add()
         {
             Assert.IsTrue(7 == calculator.Add(3, 4));
         }
+        */
 
         [TestMethod]
         public void TestMethod2_Multiply()
