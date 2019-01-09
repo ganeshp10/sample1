@@ -8,12 +8,14 @@ coverage:
   range: 50...70
 
   status:
-    project: yes
+    project:
       default:
-        target: 60
-    patch: yes
+        target: 60%
+
+    patch:
       default:
-        target: 50
+        target: 50%
+
     changes: yes
 
 parsers:
