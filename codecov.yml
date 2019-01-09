@@ -14,9 +14,13 @@ coverage:
     patch: 
       production: 
         target: 30%
+      test:
+        target: 40%
     project: 
       production: 
         target: 50%
+      test:
+        target: 40%
 parsers: 
   gcov: 
     branch_detection: 
