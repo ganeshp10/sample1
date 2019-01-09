@@ -2,7 +2,7 @@ codecov:
   notify: 
     require_ci_to_pass: true
 comment: 
-  behavior: default
+  behavior: spammy
   layout: header, diff
   require_changes: false
 coverage: 
