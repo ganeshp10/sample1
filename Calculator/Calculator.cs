@@ -46,5 +46,10 @@ namespace Calculators
         {
             return "Hello " + name + "!";
         }
+        
+        public string HelloWorld(string name)
+        {
+            return "Hello " + name + "!";
+        }
     }
 }
