@@ -12,15 +12,19 @@ coverage:
   status: 
     changes: false
     patch: 
-      production: 
+      frontend: 
+        target: 20%
+        flags: frontend
+      backend:
         target: 30%
-      test:
-        target: 40%
+        flags: backend
     project: 
-      production: 
-        target: 50%
-      test:
+      frontend: 
         target: 40%
+        flags: frontend
+      backend:
+        target: 50%
+        flags: backend
 parsers: 
   gcov: 
     branch_detection: 
@@ -28,3 +32,15 @@ parsers:
       loop: true
       macro: false
       method: false
+flags:
+  # filter the folder(s) you wish to measure by that flag
+  backend:
+    # only include files in the backend folder
+    paths:
+      - Calculator/
+  frontend:
+    paths:
+      - FrontEnd/
+  tests:
+    paths:
+      - CalculatorTests/
