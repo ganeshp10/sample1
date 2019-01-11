@@ -10,9 +10,17 @@ param(
 $vstest = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
 $calcTests = "{0}\{1}" -f $testDir, "CalculatorTests.dll"
 $frontendTests = "{0}\{1}" -f $testDir, "FrontEndTests.dll"
-& $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"+[Calculator*]* -[*Tests]* -[*TestFramework*]*" -hideskipped:All -output:.\coverage.xml
+Write-Host  "***********************************************"
+Write-Host  "***********************************************"
 
-Write-Host $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"+[Calculator*]* -[*Tests]* -[*TestFramework*]*" -hideskipped:All -output:.\coverage.xml
+Write-Host $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"-[*Tests]* -[*Microsoft*]*" -hideskipped:All -output:.\coverage.xml
+
+Write-Host  "***********************************************"
+Write-Host  "***********************************************"
+
+& $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"-[*Tests]* -[*Microsoft*]*" -hideskipped:All -output:.\coverage.xml
+
+
 
 #On the Agent box repo is in a detached state. So get branchName by commit hash
 $lastCommit = $(git rev-parse HEAD)
