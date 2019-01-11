@@ -13,12 +13,12 @@ $frontendTests = "{0}\{1}" -f $testDir, "FrontEndTests.dll"
 Write-Host  "***********************************************"
 Write-Host  "***********************************************"
 
-Write-Host $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"-[*Tests]* -[*Microsoft*]*" -hideskipped:All -output:.\coverage.xml
+Write-Host $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"+[*Calculator]* +[*FrontEnd]* -[*Tests]* -[*Microsoft*]*" -hideskipped:All -output:.\coverage.xml
 
 Write-Host  "***********************************************"
 Write-Host  "***********************************************"
 
-& $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"-[*Tests]* -[*Microsoft*]*" -hideskipped:All -output:.\coverage.xml
+& $openCoverExe -register:path32 -target:"$vstest" -targetargs:"$calcTests $frontendTests /TestCaseFilter:FullyQualifiedName~UnitTest /logger:trx" -filter:"+[*Calculator]* +[*FrontEnd]* -[*Tests]* -[*Microsoft*]*" -hideskipped:All -output:.\coverage.xml
 
 
 
