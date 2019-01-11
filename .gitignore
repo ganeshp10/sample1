@@ -9,3 +9,5 @@
 /CalculatorTests/obj/Debug
 /packages
 .vs/Calculator/DesignTimeBuild/.dtbcache
+/FrontEnd/bin/Debug
+/FrontEnd/obj/Debug
