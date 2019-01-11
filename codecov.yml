@@ -3,28 +3,38 @@ codecov:
     require_ci_to_pass: true
 comment: 
   behavior: spammy
-  layout: header, diff
+  layout: "header, diff"
   require_changes: false
 coverage: 
   precision: 1
-  range: 95...100
+  range: "95...100"
   round: down
   status: 
     changes: false
     patch: 
-      frontend: 
-        target: 20%
-        flags: frontend
-      backend:
+      backend: 
+        flags: backend
         target: 30%
-        flags: backend
-    project: 
       frontend: 
-        target: 40%
         flags: frontend
-      backend:
-        target: 50%
+        target: 20%
+    project: 
+      backend: 
         flags: backend
+        target: 50%
+      frontend: 
+        flags: frontend
+        target: 40%
+flags: 
+  backend: 
+    paths: 
+      - Calculator/
+  frontend: 
+    paths: 
+      - FrontEnd/
+  tests: 
+    paths: 
+      - CalculatorTests/
 parsers: 
   gcov: 
     branch_detection: 
@@ -32,15 +42,3 @@ parsers:
       loop: true
       macro: false
       method: false
-flags:
-  # filter the folder(s) you wish to measure by that flag
-  backend:
-    # only include files in the backend folder
-    paths:
-      - Calculator/
-  frontend:
-    paths:
-      - FrontEnd/
-  tests:
-    paths:
-      - CalculatorTests/
