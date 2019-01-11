@@ -39,12 +39,32 @@ namespace Calculators
 
         public int Divide(int a, int b)
         {
+            if(b == 0)
+            {
+                throw new Exception("denominator is zero");
+            }
+            
             return a / b;
         }
 
         public string Hello(string name)
         {
             return "Hello " + name + "!";
+        }
+
+        public int SquareRoot(int a)
+        {
+            return a;
+        }
+
+        public int Modulo(int a, int b)
+        {
+            return a % b;
+        }
+
+        public int Square(int a)
+        {
+            return a*a;
         }
     }
 }
