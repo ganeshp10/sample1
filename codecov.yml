@@ -12,13 +12,15 @@ coverage:
   status: 
     changes: false
     patch: 
+      default: off
       backend: 
         flags: backend
         target: 30%
       frontend: 
         flags: frontend
         target: 20%
-    project: 
+    project:
+      default: off
       backend: 
         flags: backend
         target: 50%
