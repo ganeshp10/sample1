@@ -11,3 +11,5 @@
 .vs/Calculator/DesignTimeBuild/.dtbcache
 /FrontEnd/bin/Debug
 /FrontEnd/obj/Debug
+/FrontEndTests/bin/Debug
+/FrontEndTests/obj/Debug
